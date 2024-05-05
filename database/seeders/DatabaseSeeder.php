@@ -15,9 +15,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CategoriaSeeder::class,
-            AvaliacoesSeeder::class,
-            MusicaSeeder::class,
-            PlaylistSeeder::class,
+            
         ]);
         // \App\Models\User::factory(10)->create();
 
