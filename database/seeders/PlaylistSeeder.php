@@ -13,6 +13,6 @@ class PlaylistSeeder extends Seeder
      */
     public function run(): void
     {
-        Playlist::factory()->count(9)->create();
+        Categoria::factory()->count(9)->create();
     }
 }
