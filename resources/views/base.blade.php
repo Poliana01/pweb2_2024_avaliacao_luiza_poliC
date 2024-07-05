@@ -16,6 +16,10 @@
             <a class="nav-item nav-link" href="{{ url('avaliacoes') }}">Avaliações</a>
             <a class="nav-item nav-link" href="{{ url('playlist') }}">Playlist</a>
             <a class="nav-item nav-link" href="{{ url('musica') }}">Música</a>
+            <a class="nav-item nav-link" href="{{ url('reclame') }}">Reclame Aqui</a>
+            <a class="nav-item nav-link" href="{{ url('compositor') }}">Registre Sua Letra</a>
+
+
 
         </nav>
 

@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MusicaController;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\AvaliacoesController;
+use App\Http\Controllers\ReclameController;
+use App\Http\Controllers\CompositorController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,3 +38,9 @@ Route::post('/playlist/search', [PlaylistController::class, "search"])->name('pl
 
 Route::resource('avaliacoes', AvaliacoesController::class);
 Route::post('/avaliacoes/search', [AvaliacoesController::class, "search"])->name('avaliacoes.search');
+
+Route::resource('reclame', ReclameController::class);
+Route::post('/reclame/search', [ReclameController::class, "search"])->name('reclame.search');
+
+Route::resource('compositor', CompositorController::class);
+Route::post('/compositor/search', [CompositorController::class, "search"])->name('compositor.search');
