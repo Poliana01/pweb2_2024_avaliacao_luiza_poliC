@@ -12,6 +12,6 @@ class CompositorSeeder extends Seeder
      */
     public function run(): void
     {
-       Categoria::factory()->count(9)->create();
+        Compositor::factory()->count(9)->create();
     }
 }

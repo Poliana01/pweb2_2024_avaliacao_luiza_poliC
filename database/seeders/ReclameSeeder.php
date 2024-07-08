@@ -12,6 +12,6 @@ class ReclameSeeder extends Seeder
      */
     public function run(): void
     {
-       Categoria::factory()->count(9)->create();
+        Reclame::factory()->count(9)->create();
     }
 }

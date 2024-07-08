@@ -27,8 +27,9 @@ Route::delete('/aluno/{$aluno}',
  Route::post('/aluno',
   [AlunoController::class, "update"])->name('aluno.update');
 */
-Route::resource('musica', MusicaController::class);
 Route::post('/musica/search', [MusicaController::class, "search"])->name('musica.search');
+Route::get('/musica/chart', [MusicaController::class, "chart"])->name('musica.chart');
+Route::resource('musica', MusicaController::class);
 
 Route::get('/categoria', [CategoriaController::class, "index"]);
 Route::post('/categoria/search', [CategoriaController::class, "search"])->name('categoria.search');

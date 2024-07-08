@@ -13,6 +13,6 @@ class MusicaSeeder extends Seeder
      */
     public function run(): void
     {
-        Categoria::factory()->count(9)->create();
+        Musica::factory()->count(9)->create();
     }
 }

@@ -12,6 +12,6 @@ class AvaliacoesSeeder extends Seeder
      */
     public function run(): void
     {
-       Categoria::factory()->count(9)->create();
+       Avaliacoes::factory()->count(9)->create();
     }
 }

@@ -27,7 +27,7 @@ class MusicaFactory extends Factory
             'usuario' => fake()->name(),
             'nmusica' => fake()->name(),
             'artista' => fake()->name(),
-            'ano' => fake()->name(),
+            'ano' => fake()->number(),
             'link' => fake()->name(),
 
         ];

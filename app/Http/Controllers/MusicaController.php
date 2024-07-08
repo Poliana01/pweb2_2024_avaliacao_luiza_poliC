@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Musica;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use App\Charts\GraficoMusica;
 
 class MusicaController extends Controller
 {
@@ -191,5 +192,10 @@ class MusicaController extends Controller
         // dd($dados);
 
         return view("musica.list", ["dados" => $dados]);
+    }
+
+    public function chart(GraficoMusica $musicaChart)
+    {
+        return view("musica.chart", ["musicaChart" => $musicaChart->build()]);
     }
 }
