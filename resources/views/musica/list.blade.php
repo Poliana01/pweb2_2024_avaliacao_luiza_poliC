@@ -23,6 +23,8 @@
             </div>
             <button type="submit" class="btn btn-primary" style="font-family: Arial, sans-serif;">Buscar</button>
             <a href="{{ url('musica/create') }}" class="btn btn-secondary" style="font-family: Arial, sans-serif;">Novo</a>
+            <a href="{{ url('musica/chart') }}" class="btn btn-secondary" style="font-family: Arial, sans-serif;">Gráfico</a>
+            <a href="{{ url('musica/report') }}" class="btn btn-secondary" style="font-family: Arial, sans-serif;">PDF</a>
         </form>
 
         <hr>

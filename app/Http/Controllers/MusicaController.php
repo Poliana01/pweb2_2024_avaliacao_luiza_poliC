@@ -6,6 +6,7 @@ use App\Models\Musica;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
 use App\Charts\GraficoMusica;
+use PDF;
 
 class MusicaController extends Controller
 {
@@ -197,5 +198,20 @@ class MusicaController extends Controller
     public function chart(GraficoMusica $musicaChart)
     {
         return view("musica.chart", ["musicaChart" => $musicaChart->build()]);
+    }
+
+    public function report()
+    {
+        $musicas = Musica::All();
+
+        $data = [
+            'titulo' => 'Relatorio Musica',
+            'musicas' => $musicas,
+
+        ];
+
+        $pdf = PDF::loadView('musica.report', $data);
+
+        return $pdf->download('relatorio_musica.pdf');
     }
 }
