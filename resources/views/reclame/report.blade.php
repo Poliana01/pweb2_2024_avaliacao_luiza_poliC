@@ -16,12 +16,10 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-           <th scope="col">Imagem</th>
             <th scope="col">Usuário</th>
-            <th scope="col"> Música</th>
-            <th scope="col">Confira</th>
-            <th scope="col">Avaliação</th>
-            <th scope="col">Categoria</th>
+            <th scope="col">Data</th>
+            <th scope="col">Relate O Que Aconteceu</th>
+            <th scope="col">Em Qual Área Você Teve Problemas?</th>
           </tr>
         </thead>
         <tbody>
@@ -35,8 +33,7 @@
             <th scope="row">{{ $reclame->id }}</th>
             <td><img src="{{ $srcImagem }}" alt="img" style="width: 100px"></td>
             <td>{{$reclame->nNome}}</td>
-            <td>{{$reclame->nMusica}}</td>
-            <td>{{$reclame->nLink}}</td>
+            <td>{{$reclame->nData}}</td>
             <td>{{$reclame->nAvaliacao}}</td>
             <td>{{$reclame->categoria->nome ?? ''}}</td>
           </tr>

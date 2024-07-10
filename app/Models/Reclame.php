@@ -12,18 +12,9 @@ class Reclame extends Model
     protected $table = "reclame";
     protected $fillable = [
         "nNome",
-        "nMusica",
-        "nLink",
+        "nData",
         "nAvaliacao",
-        "categoria_id",
+        "categoria",
     ];
 
-    protected $casts = [
-        'categoria_id'=>'integer'
-    ];
-
-    public function categoria(){
-
-        return $this->belongsTo(Categoria::class, 'categoria_id');
-    }
 }

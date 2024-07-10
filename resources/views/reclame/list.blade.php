@@ -1,14 +1,15 @@
 @extends('base')
 
 @section('conteudo')
-<div class="container" style="background-color: #cae6b4; padding: 20px; border-radius: 10px;">
-    <h3 class="mb-4 text-uppercase fw-bold" style="color: #435e34;">ALGO EM NOSSO SITE ESTÁ COM PROBLEMA? NOS DIGA O QUE É:</h3>
+<div class="container" style="background-color: #d6b99e; padding: 20px; border-radius: 10px;">
+    <h3 class="mb-4 text-uppercase fw-bold" style="color: #6b2e05;">ALGO EM NOSSO SITE ESTÁ DANDO PROBLEMA? NOS DIGA O QUE É:</h3>
+   TIPO:</h3>
 
     <form action="{{ route('reclame.search') }}" method="post" class="mb-4">
         @csrf
         <div class="row mb-3">
             <div class="col-3">
-                <label for="nome" class="form-label" style="font-family: Arial, sans-serif;">Nome</label>
+                <label for="nome" class="form-label" style="font-family: Arial, sans-serif;"></label>
                 <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome">
             </div>
         </div>
@@ -27,10 +28,9 @@
             <tr>
                 <th>ID</th>
                 <th>Usuário</th>
-                <th>Música</th>
-                <th>Confira</th>
-                <th>Avaliação</th>
-                <th>Estilo Musical</th>
+                <th>Data</th>
+                <th>Em Qual Área Você Teve Problemas?</th>
+                <th>Categoria</th>
                 <th colspan="2">Ações</th>
             </tr>
         </thead>
@@ -39,10 +39,9 @@
             <tr>
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->nNome }}</td>
-                <td>{{ $item->nMusica }}</td>
-                <td><a href="{{ $item->nLink }}" target="_blank">{{ $item->nLink }}</a></td>
+                <td>{{ $item->nData }}</td>
                 <td>{{ $item->nAvaliacao }}</td>
-                <td>{{ $item->categoria->nome }}</td>
+                <td>{{ $item->categoria }}</td>
                 <td><a href="{{ route('reclame.edit', $item->id) }}" class="btn btn-secondary"
                         style="font-family: Arial, sans-serif;">Editar</a></td>
                 <td>

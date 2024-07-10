@@ -22,7 +22,10 @@ class ReclameController extends Controller
 
     public function create()
     {
-        $categorias = Categoria::all();
+        $categorias = [
+            "NÃO CARREGA IMAGEM",
+            "Link quebrado"
+            ];
 
         return view("reclame.form",['categorias'=>$categorias]);
     }
@@ -34,29 +37,24 @@ class ReclameController extends Controller
 
         $request->validate([
             'nNome' => "required|max:100",
-            'nMusica' => "required|max:100",
-            'nLink' => "required",
+            'nData' => "required|max:100",
             'nAvaliacao' => "required",
-            'categoria_id' => "required"
-
-
+            'categoria' => "required"
         ], [
             'nNome.required' => "O :attribute é obrigatório",
             'nNome.max' => "Só é permitido 100 caracteres",
-            'nMusica.required' => "O :attribute é obrigatório",
-            'nMusica.max' => "Só é permitido 100 caracteres",
-            'nLink.required' => "O :attribute é obrigatório",
+            'nData.required' => "O :attribute é obrigatório",
+            'nData.max' => "Só é permitido 100 caracteres",
             'nAvaliacao.required' => "O :attribute é obrigatório",
-            'categoria_id.required' => "O :attribute é obrigatório",
+            'categoria.required' => "O :attribute é obrigatório",
         ]);
 
         Reclame::create(
             [
                 'nNome' => $request->nNome,
-                'nMusica' => $request->nMusica,
-                'nLink' => $request->nLink,
+                'nData' => $request->nData,
                 'nAvaliacao' => $request->nAvaliacao,
-                'categoria_id' => $request->categoria_id,
+                'categoria' => $request->categoria,
             ]
         );
 
@@ -78,7 +76,10 @@ class ReclameController extends Controller
     {
         $dado = Reclame::findOrFail($id);
 
-        $categorias = Categoria::all();
+        $categorias = [
+            "NÃO CARREGA IMAGEM",
+            "Link quebrado"
+        ];
 
         return view("reclame.form", [
             'dado' => $dado,
@@ -94,18 +95,16 @@ class ReclameController extends Controller
 
         $request->validate([
             'nNome' => "required|max:100",
-            'nMusica' => "required|max:100",
-            'nLink' => "required",
+            'nData' => "required|max:100",
             'nAvaliacao' => "required",
-            'categoria_id' => "required"
+            'categoria' => "required"
         ], [
             'nNome.required' => "O :attribute é obrigatório",
             'nNome.max' => "Só é permitido 100 caracteres",
-            'nMusica.required' => "O :attribute é obrigatório",
-            'nMusica.max' => "Só é permitido 100 caracteres",
-            'nLink.required' => "O :attribute é obrigatório",
+            'nData.required' => "O :attribute é obrigatório",
+            'nData.max' => "Só é permitido 100 caracteres",
             'nAvaliacao.required' => "O :attribute é obrigatório",
-            'categoria_id.required' => "O :attribute é obrigatório",
+            'categoria.required' => "O :attribute é obrigatório",
         ]);
 
         Reclame::updateOrCreate(
@@ -113,10 +112,9 @@ class ReclameController extends Controller
             [
 
                 'nNome' => $request->nNome,
-                'nMusica' => $request->nMusica,
-                'nLink' => $request->nLink,
+                'nData' => $request->nData,
                 'nAvaliacao' => $request->nAvaliacao,
-                'categoria_id' => $request->categoria_id,
+                'categoria' => $request->categoria,
             ]
         );
 

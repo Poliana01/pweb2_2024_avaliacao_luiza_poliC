@@ -18,11 +18,11 @@ class ReclameFactory extends Factory
     {
         return [
             'nNome' => fake()->name(),
-            'nMusica' => fake()->name(),
-            'nLink' => fake()->name(),
+            'nData' => fake()->name(),
             'nAvaliacao' => fake()->name(),
+            'categoria' => fake()->name(),
 
         ];
     }
-   
+
 }

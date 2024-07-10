@@ -1,17 +1,16 @@
 @extends('base')
 
 @section('conteudo')
-    <div class="container" style="background-color: #cae6b4; padding: 20px; border-radius: 10px;">
-        <h3 class="mb-4 text-uppercase fw-bold" style="color: #435e34;">ALGO EM NOSSO SITE ESTÁ DANDO PROBLEMA? NOS DIGA O QUE É:</h3>
+    <div class="container" style="background-color: #d6b99e; padding: 20px; border-radius: 10px;">
+        <h3 class="mb-4 text-uppercase fw-bold" style="color: #6b2e05;">ALGO EM NOSSO SITE ESTÁ DANDO PROBLEMA? NOS DIGA O QUE É:</h3>
 
         @php
-            $background_color = "#cae6b4"; // Definindo a cor de fundo como rosa bebê
+            $background_color = "#d6b99e"; // Definindo a cor de fundo como rosa bebê
 
             $editMode = !empty($dado->id);
             $route = $editMode ? route('reclame.update', $dado->id) : route('reclame.store');
             $nNome = $editMode ? $dado->nNome : old('nNome');
-            $nMusica = $editMode ? $dado->nMusica : old('nMusica');
-            $nLink = $editMode ? $dado->nLink : old('nLink');
+            $nData = $editMode ? $dado->nData : old('nData');
             $nAvaliacao = $editMode ? $dado->nAvaliacao : old('nAvaliacao');
         @endphp
 
@@ -30,25 +29,20 @@
             </div>
 
             <div class="mb-3">
-                <label for="nMusica" class="form-label">Música</label>
-                <input type="text" name="nMusica" id="nMusica" class="form-control" value="{{ $nMusica }}">
+                <label for="nData" class="form-label">Data</label>
+                <input type="text" name="nData" id="nData" class="form-control" value="{{ $nData }}">
             </div>
 
             <div class="mb-3">
-                <label for="nLink" class="form-label">Confira</label>
-                <input type="text" name="nLink" id="nLink" class="form-control" value="{{ $nLink }}">
-            </div>
-
-            <div class="mb-3">
-                <label for="nAvaliacao" class="form-label">Avaliação</label>
+                <label for="nAvaliacao" class="form-label">Relate O Que Aconteceu</label>
                 <input type="text" name="nAvaliacao" id="nAvaliacao" class="form-control" value="{{ $nAvaliacao }}">
             </div>
 
             <div class="mb-3">
-                <label for="categoria_id" class="form-label">Estilo Musical</label>
-                <select name="categoria_id" id="categoria_id" class="form-select">
+                <label for="categoria" class="form-label">Em Qual Área Você Teve Problemas?</label>
+                <select name="categoria" id="categoria" class="form-select">
                     @foreach ($categorias as $item)
-                        <option value="{{ $item->id }}">{{ $item->nome }}</option>
+                        <option value="{{ $item}}">{{ $item }}</option>
                     @endforeach
                 </select>
             </div>
