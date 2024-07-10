@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Reclame;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use App\Charts\GraficoReclame;
+use PDF;
 
 class ReclameController extends Controller
 {
@@ -146,5 +148,24 @@ class ReclameController extends Controller
         // dd($dados);
 
         return view("reclame.list", ["dados" => $dados]);
+    }
+    public function chart(GraficoReclame $reclameChart)
+    {
+        return view("reclame.chart", ["reclameChart" => $reclameChart->build()]);
+    }
+
+    public function report()
+    {
+        $reclames = Reclame::All();
+
+        $data = [
+            'titulo' => 'Relatorio Reclame',
+            'reclames' => $reclames,
+
+        ];
+
+        $pdf = PDF::loadView('reclame.report', $data);
+
+        return $pdf->download('relatorio_reclame.pdf');
     }
 }

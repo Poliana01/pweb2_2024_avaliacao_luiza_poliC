@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MusicaController;
 use App\Http\Controllers\PlaylistController;
@@ -32,7 +33,6 @@ Route::get('/musica/chart',
      [MusicaController::class, "chart"])->name('musica.chart');
 Route::get('/musica/report/',
       [musicaController::class, "report"]) ->name('musica.report');
-
 Route::resource('musica', MusicaController::class);
 
 Route::get('/categoria', [CategoriaController::class, "index"]);
@@ -44,8 +44,12 @@ Route::post('/playlist/search', [PlaylistController::class, "search"])->name('pl
 Route::resource('avaliacoes', AvaliacoesController::class);
 Route::post('/avaliacoes/search', [AvaliacoesController::class, "search"])->name('avaliacoes.search');
 
-Route::resource('reclame', ReclameController::class);
 Route::post('/reclame/search', [ReclameController::class, "search"])->name('reclame.search');
+Route::get('/reclame/chart',
+     [ReclameController::class, "chart"])->name('reclame.chart');
+Route::get('/reclame/report/',
+      [reclameController::class, "report"]) ->name('reclame.report');
+Route::resource('reclame', ReclameController::class);
 
 Route::resource('compositor', CompositorController::class);
 Route::post('/compositor/search', [CompositorController::class, "search"])->name('compositor.search');

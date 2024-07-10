@@ -14,6 +14,10 @@
         </div>
         <button type="submit" class="btn btn-primary" style="font-family: Arial, sans-serif;">Buscar</button>
         <a href="{{ url('reclame/create') }}" class="btn btn-secondary" style="font-family: Arial, sans-serif;">Novo</a>
+        <a href="{{ url('reclame/chart') }}" class="btn btn-secondary" style="font-family: Arial, sans-serif;">Gráfico</a>
+        <a href="{{ url('reclame/report') }}" class="btn btn-secondary" style="font-family: Arial, sans-serif;">PDF</a>
+
+
     </form>
 
     <hr>
