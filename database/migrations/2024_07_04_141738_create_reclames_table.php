@@ -12,7 +12,7 @@ return new class extends Migration
 
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('reclame', function (Blueprint $table) {
+        Schema::create('reclames', function (Blueprint $table) {
             $table->id();
             $table->string('nNome',100);
             $table->string("nData",100);
@@ -26,6 +26,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('reclame');
+        Schema::dropIfExists('reclames');
     }
 };

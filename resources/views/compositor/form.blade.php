@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <div class="container" style="background-color: #cae6b4; padding: 20px; border-radius: 10px;">
-        <h3 class="mb-4 text-uppercase fw-bold" style="color: #435e34;">FORMULÁRIO DE AVALIAÇÕES</h3>
+        <h3 class="mb-4 text-uppercase fw-bold" style="color: #435e34;">AINDA NÃO GRAVOU SUA MÚSICA? PUBLIQUE A LETRA AQUI PARA O MUNDO CONHECER!</h3>
 
         @php
             $background_color = "#cae6b4"; // Definindo a cor de fundo como rosa bebê
@@ -11,8 +11,8 @@
             $route = $editMode ? route('compositor.update', $dado->id) : route('compositor.store');
             $nNome = $editMode ? $dado->nNome : old('nNome');
             $nMusica = $editMode ? $dado->nMusica : old('nMusica');
-            $nLink = $editMode ? $dado->nLink : old('nLink');
-            $nAvaliacao = $editMode ? $dado->nAvaliacao : old('nAvaliacao');
+            $nData = $editMode ? $dado->nData : old('nData');
+            $nLetra = $editMode ? $dado->nLetra : old('nLetra');
         @endphp
 
         <form action="{{ $route }}" method="post" class="mt-4 p-4 rounded shadow-sm" style="background-color: {{ $background_color }};">
@@ -25,23 +25,23 @@
             value="@if (!empty($dado->id)) {{ $dado->id }}@else{{ '' }} @endif"><br>
 
             <div class="mb-3">
-                <label for="nNome" class="form-label">Usuário</label>
+                <label for="nNome" class="form-label">Nome do Compositor</label>
                 <input type="text" name="nNome" id="nNome" class="form-control" value="{{ $nNome }}">
             </div>
 
             <div class="mb-3">
-                <label for="nMusica" class="form-label">Música</label>
+                <label for="nMusica" class="form-label">Nome da Música</label>
                 <input type="text" name="nMusica" id="nMusica" class="form-control" value="{{ $nMusica }}">
             </div>
 
             <div class="mb-3">
-                <label for="nLink" class="form-label">Confira</label>
-                <input type="text" name="nLink" id="nLink" class="form-control" value="{{ $nLink }}">
+                <label for="nData" class="form-label">Data</label>
+                <input type="text" name="nData" id="nData" class="form-control" value="{{ $nData }}">
             </div>
 
             <div class="mb-3">
-                <label for="nAvaliacao" class="form-label">Avaliação</label>
-                <input type="text" name="nAvaliacao" id="nAvaliacao" class="form-control" value="{{ $nAvaliacao }}">
+                <label for="nLetra" class="form-label">Letra</label>
+                <input type="text" name="nLetra" id="nLetra" class="form-control" value="{{ $nLetra }}">
             </div>
 
             <div class="mb-3">

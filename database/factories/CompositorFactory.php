@@ -19,8 +19,8 @@ class CompositorFactory extends Factory
         return [
             'nNome' => fake()->name(),
             'nMusica' => fake()->name(),
-            'nLink' => fake()->name(),
-            'nAvaliacao' => fake()->name(),
+            'nData' => fake()->name(),
+            'nLetra' => fake()->name(),
 
         ];
     }

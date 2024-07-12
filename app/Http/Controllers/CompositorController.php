@@ -33,8 +33,8 @@ class CompositorController extends Controller
         $request->validate([
             'nNome' => "required|max:100",
             'nMusica' => "required|max:100",
-            'nLink' => "required",
-            'nAvaliacao' => "required",
+            'nData' => "required|max:100",
+            'nLetra' => "required|max:100",
             'categoria_id' => "required"
 
 
@@ -43,8 +43,9 @@ class CompositorController extends Controller
             'nNome.max' => "Só é permitido 100 caracteres",
             'nMusica.required' => "O :attribute é obrigatório",
             'nMusica.max' => "Só é permitido 100 caracteres",
-            'nLink.required' => "O :attribute é obrigatório",
-            'nAvaliacao.required' => "O :attribute é obrigatório",
+            'nData.required' => "O :attribute é obrigatório",
+            'nData.max' => "Só é permitido 100 caracteres",
+            'nLetra.required' => "O :attribute é obrigatório",
             'categoria_id.required' => "O :attribute é obrigatório",
         ]);
 
@@ -52,8 +53,8 @@ class CompositorController extends Controller
             [
                 'nNome' => $request->nNome,
                 'nMusica' => $request->nMusica,
-                'nLink' => $request->nLink,
-                'nAvaliacao' => $request->nAvaliacao,
+                'nData' => $request->nData,
+                'nLetra' => $request->nLetra,
                 'categoria_id' => $request->categoria_id,
             ]
         );
@@ -93,16 +94,17 @@ class CompositorController extends Controller
         $request->validate([
             'nNome' => "required|max:100",
             'nMusica' => "required|max:100",
-            'nLink' => "required",
-            'nAvaliacao' => "required",
+            'nData' => "required|max:100",
+            'nLetra' => "required|max:100",
             'categoria_id' => "required"
         ], [
             'nNome.required' => "O :attribute é obrigatório",
             'nNome.max' => "Só é permitido 100 caracteres",
             'nMusica.required' => "O :attribute é obrigatório",
             'nMusica.max' => "Só é permitido 100 caracteres",
-            'nLink.required' => "O :attribute é obrigatório",
-            'nAvaliacao.required' => "O :attribute é obrigatório",
+            'nData.required' => "O :attribute é obrigatório",
+            'nData.max' => "Só é permitido 100 caracteres",
+            'nLetra.required' => "O :attribute é obrigatório",
             'categoria_id.required' => "O :attribute é obrigatório",
         ]);
 
@@ -112,8 +114,8 @@ class CompositorController extends Controller
 
                 'nNome' => $request->nNome,
                 'nMusica' => $request->nMusica,
-                'nLink' => $request->nLink,
-                'nAvaliacao' => $request->nAvaliacao,
+                'nData' => $request->nData,
+                'nLetra' => $request->nLetra,
                 'categoria_id' => $request->categoria_id,
             ]
         );

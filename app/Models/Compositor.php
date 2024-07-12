@@ -14,8 +14,8 @@ class Compositor extends Model
     protected $fillable = [
         "nNome",
         "nMusica",
-        "nLink",
-        "nAvaliacao",
+        "nData",
+        "nLetra",
         "categoria_id",
     ];
 
