@@ -23,8 +23,12 @@ class ReclameController extends Controller
     public function create()
     {
         $categorias = [
-            "NÃO CARREGA IMAGEM",
-            "Link quebrado"
+            "IMAGEM",
+            "LINK",
+            "DEMORA NO CARREGAMENTO",
+            "INFORMAÇÃO ERRADA",
+            "PLAYLIST",
+            "OUTRO"
             ];
 
         return view("reclame.form",['categorias'=>$categorias]);
@@ -77,8 +81,12 @@ class ReclameController extends Controller
         $dado = Reclame::findOrFail($id);
 
         $categorias = [
-            "NÃO CARREGA IMAGEM",
-            "Link quebrado"
+            "IMAGEM",
+            "LINK",
+            "DEMORA NO CARREGAMENTO",
+            "INFORMAÇÃO ERRADA",
+            "PLAYLIST",
+            "OUTRO"
         ];
 
         return view("reclame.form", [

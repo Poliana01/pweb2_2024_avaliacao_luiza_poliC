@@ -29,8 +29,8 @@
                 <th>ID</th>
                 <th>Usuário</th>
                 <th>Data</th>
+                <th>Relate o que Aconteceu</th>
                 <th>Em Qual Área Você Teve Problemas?</th>
-                <th>Categoria</th>
                 <th colspan="2">Ações</th>
             </tr>
         </thead>

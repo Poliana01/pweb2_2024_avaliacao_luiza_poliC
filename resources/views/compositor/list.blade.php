@@ -38,8 +38,7 @@
                 <td>{{ $item->nMusica }}</td>
                 <td><a href="{{ $item->nLink }}" target="_blank">{{ $item->nLink }}</a></td>
                 <td>{{ $item->nAvaliacao }}</td>
-                <td>{{ $item->categoria->nome }}</td>
-                <td><a href="{{ route('compositor.edit', $item->id) }}" class="btn btn-secondary"
+                <td>{{ $item->categoria->nome  ?? ""}}</td>                <td><a href="{{ route('compositor.edit', $item->id) }}" class="btn btn-secondary"
                         style="font-family: Arial, sans-serif;">Editar</a></td>
                 <td>
                     <form action="{{ route('compositor.destroy', $item) }}" method="post">

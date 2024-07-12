@@ -38,8 +38,8 @@
                                 <li class="list-group-item">Musica 5: <a href="{{ $item->musica5->link }}" target="_blank">{{ $item->musica5->nmusica }}</a></li>
                                 <li class="list-group-item">Musica 6: <a href="{{ $item->musica6->link }}" target="_blank">{{ $item->musica6->nmusica }}</a></li>
                                 <li class="list-group-item">Musica 7: <a href="{{ $item->musica7->link }}" target="_blank">{{ $item->musica7->nmusica }}</a></li>
-                            </ul>
-                            <p class="card-text">Estilo Musical: {{ $item->categoria->nome }}</p>
+                            </ul>                            
+                            <p class="card-text">Estilo Musical: {{ $item->categoria->nome ?? ""}}</p>
                             <a href="{{ route('playlist.edit', $item->id) }}" class="btn btn-secondary" style="font-family: Arial, sans-serif;">Editar</a>
                             <form action="{{ route('playlist.destroy', $item) }}" method="post" style="display: inline;">
                                 @method('DELETE')

@@ -34,7 +34,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="nAvaliacao" class="form-label">Relate O Que Aconteceu</label>
+                <label for="nAvaliacao" class="form-label">Relate o que Aconteceu</label>
                 <input type="text" name="nAvaliacao" id="nAvaliacao" class="form-control" value="{{ $nAvaliacao }}">
             </div>
 

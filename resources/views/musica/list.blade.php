@@ -51,8 +51,7 @@
                         <td>{{ $item->artista }}</td>
                         <td>{{ $item->ano }}</td>
                         <td><a href="{{ $item->link }}" target="_blank">{{ $item->link }}</a></td>
-                        <td>{{ $item->categoria->nome }}</td>
-                        <td><a href="{{ route('musica.edit', $item->id) }}" class="btn btn-secondary"
+                        <td>{{ $item->categoria->nome  ?? ""}}</td>                        <td><a href="{{ route('musica.edit', $item->id) }}" class="btn btn-secondary"
                                 style="font-family: Arial, sans-serif;">Editar</a></td>
                         <td>
                             <form action="{{ route('musica.destroy', $item) }}" method="post">
