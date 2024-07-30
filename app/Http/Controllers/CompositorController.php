@@ -34,7 +34,7 @@ class CompositorController extends Controller
             'nNome' => "required|max:100",
             'nMusica' => "required|max:100",
             'nData' => "required|max:100",
-            'nLetra' => "required|max:100",
+            'nLetra' => "required",
             'categoria_id' => "required"
 
 
@@ -95,7 +95,7 @@ class CompositorController extends Controller
             'nNome' => "required|max:100",
             'nMusica' => "required|max:100",
             'nData' => "required|max:100",
-            'nLetra' => "required|max:100",
+            'nLetra' => "required",
             'categoria_id' => "required"
         ], [
             'nNome.required' => "O :attribute é obrigatório",

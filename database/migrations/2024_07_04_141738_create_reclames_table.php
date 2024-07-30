@@ -12,7 +12,7 @@ return new class extends Migration
 
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('reclames', function (Blueprint $table) {
+        Schema::create('reclame', function (Blueprint $table) {
             $table->id();
             $table->string('nNome',100);
             $table->string("nData",100);

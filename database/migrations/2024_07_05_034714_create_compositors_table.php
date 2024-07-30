@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nNome',100);
             $table->string("nMusica",100);
             $table->string("nData",100);
-            $table->string("nLetra",255);
+            $table->text("nLetra");
             $table->foreignId('categoria_id')->nullable()->constrained('categorias')->after('id');
             $table->timestamps();
         });
