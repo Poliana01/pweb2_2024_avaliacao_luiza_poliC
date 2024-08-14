@@ -14,7 +14,7 @@ class GraficoReclame
         $this->chart = $chart;
     }
 
-    public function build(): \ArielMejiaDev\LarapexCharts\BarChart
+    public function build(): \ArielMejiaDev\LarapexCharts\PolarAreaChart
     {
 
         $reclame = DB::table("reclame")
@@ -34,6 +34,7 @@ class GraficoReclame
         //dd($reclame);
         foreach ($reclame as $item) {
             // $qtdReclame[] = $item->qtd_reclame;
+            //var_dump($item->nome_categoria);
             if ($item->nome_categoria == 'IMAGEM') {
                 $countImagem = $item->qtd_reclame;
             } else if ($item->nome_categoria == 'LINK') {
@@ -49,34 +50,18 @@ class GraficoReclame
             }
 
             $nomeCategoria[] = $item->nome_categoria;
-
         }
 
-        return $this->chart->barChart()
-            ->setTitle('Quantidade de Reclamações por Categoria.')
-            ->setSubtitle('Primeiro semestre de 2024.')
-            ->addData('IMAGEM', [$countImagem])
-            ->addData('LINK', [$countLink])
-            ->addData('DEMORA NO CARREGAMENTO', [$countDemora])
-            ->addData('INFORMAÇÃO ERRADA', [$countInfo])
-            ->addData('PLAYLIST', [$countPlay])
-            ->addData('OUTRO', [$countOutro])
-            ->setColors(['#FFC107', '#D32F2F', '#FFC107', '#D32F2F', '#FFC107', '#D32F2F',])
-            ->setXAxis($nomeCategoria);
-        // dd($qtdAlunos);
-        /*
-            return $this->chart->barChart()
-            ->setTitle('Quantidade de Reclamações por Categoria.')
-            ->setSubtitle('Primeiro semestre de 2024.')
-            ->addData('IMAGEM', [1, 1, 2, 2, 2, 1])
-            ->addData('LINK', [1, 3, 3, 6, 6, 1])
-            ->addData('DEMORA NO CARREGAMENTO', [1, 3, 8, 2, 6, 4])
-            ->addData('INFORMAÇÃO ERRADA', [1,4, 8, 2, 6, 4])
-            ->addData('PLAYLIST', [7, 3, 8, 7, 1, 1])
-            ->addData('OUTRO', [1, 0, 0, 0, 1, 1])
-            ->setXAxis(['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho']);
-        }
 
-        */
+
+
+        return $this->chart->polarAreaChart()
+            ->setTitle('Quantidade de Reclamações por Categoria.')
+            ->setSubtitle('Qual a maior reclamação?')
+            ->addData([$countImagem, $countLink, $countDemora, $countInfo, $countPlay, $countOutro])
+
+            ->setColors(['#FFA500', '#8B008B', '#00BFFF', '#228B22', '#FF1493', '#D32F2F',])
+            ->setLabels($nomeCategoria);
+
     }
 }
