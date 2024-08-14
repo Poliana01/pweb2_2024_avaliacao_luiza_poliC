@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\Categoria;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Musica>
@@ -29,8 +30,7 @@ class MusicaFactory extends Factory
             'artista' => fake()->name(),
             'ano' => fake()->randomNumber(3, false),
             'link' => fake()->name(),
-
+            'categoria_id' => (Categoria::inRandomOrder()->first())->id,
         ];
     }
-
 }

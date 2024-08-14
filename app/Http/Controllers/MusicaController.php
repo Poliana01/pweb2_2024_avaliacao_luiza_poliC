@@ -10,10 +10,12 @@ use PDF;
 
 class MusicaController extends Controller
 {
+    private $pagination = 2;
+
     public function index()
     {
         //app/http/Controller
-        $dados = Musica::all();
+        $dados = Musica::paginate($this->pagination);
 
         // dd($dados);
 
@@ -47,6 +49,7 @@ class MusicaController extends Controller
             'ano' => "required|max:4",
             'link' => "required|max:255",
             'categoria_id' => "required",
+            'imagem' => "nullable|image|mimes:png,jpeg,jpg",
 
         ], [
             'usuario.required' => "O :attribute é obrigatório",
@@ -59,18 +62,40 @@ class MusicaController extends Controller
             'ano.max' => "Só é permitido 4 caracteres",
             'link' => "O :attribute é obrigatório",
             'categoria_id.required' => "O :attribute é obrigatório",
+            'imagem.image' => "Deve ser enviado uma imagem",
+            'imagem.mimes' => "A imagem deve ser da extensão de PNG, JPEG ou JPG",
 
         ]);
 
-        Musica::create(
+        $data = $request->all();
+        $imagem = $request->file('imagem');
+
+        if ($imagem) {
+            $nome_arquivo =
+                date('YmdHis') . "." . $imagem->getClientOriginalExtension();
+            $diretorio = "imagem/musica/";
+
+            $imagem->storeAs($diretorio, $nome_arquivo, 'public');
+
+            $data['imagem'] = $diretorio . $nome_arquivo;
+        }
+
+        Musica::create($data);
+
+        return redirect('musica');
+    }
+
+
+        /**Musica::create(
             [
                 'usuario' => $request->usuario,
                 'nmusica' => $request->nmusica,
                 'artista' => $request->artista,
                 'ano' => $request->ano,
                 'link' => $request->link,
-                //'imagem' => $request->imagem,
+
                 'categoria_id' => $request->categoria_id,
+                'imagem' => $request->imagem,
             ]
         );
         /**
@@ -96,12 +121,13 @@ class MusicaController extends Controller
            * ]
       *  );
          */
-        return redirect('musica');
-    }
 
     /**
      * Display the specified resource.
      */
+
+
+
     public function show(string $id)
     {
         //
@@ -110,6 +136,8 @@ class MusicaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+
+
     public function edit(string $id)
     {
         $dado = Musica::findOrFail($id);
@@ -121,6 +149,9 @@ class MusicaController extends Controller
             'categorias'=> $categorias
         ]);
     }
+
+
+
 
     /**
      * Update the specified resource in storage.
@@ -136,6 +167,7 @@ class MusicaController extends Controller
             'ano' => "required|max:4",
             'link' => "required|max:255",
             'categoria_id' => "required",
+            'imagem' => "nullable|image|mimes:png,jpeg,jpg",
 
         ], [
             'usuario.required' => "O :attribute é obrigatório",
@@ -148,20 +180,26 @@ class MusicaController extends Controller
             'ano.max' => "Só é permitido 4 caracteres",
             'link' => "O :attribute é obrigatório",
             'categoria_id.required' => "O :attribute é obrigatório",
+            'imagem.image' => "Deve ser enviado uma imagem",
+            'imagem.mimes' => "A imagem deve ser da extensão de PNG, JPEG ou JPG",
         ]);
+
+        $data = $request->all();
+        $imagem = $request->file('imagem');
+
+        if ($imagem) {
+            $nome_arquivo =
+                date('YmdHis') . "." . $imagem->getClientOriginalExtension();
+            $diretorio = "imagem/musica/";
+
+            $imagem->storeAs($diretorio, $nome_arquivo, 'public');
+
+            $data['imagem'] = $diretorio . $nome_arquivo;
+        }
 
         Musica::updateOrCreate(
             ['id' => $request->id],
-            [
-
-                'usuario' => $request->usuario,
-                'nmusica' => $request->nmusica,
-                'artista' => $request->artista,
-                'ano' => $request->ano,
-                'link' => $request->link,
-                //'imagem' => $request->imagem,
-                'categoria_id' => $request->categoria_id,
-            ]
+            $data
         );
 
         return redirect('musica');
@@ -180,6 +218,7 @@ class MusicaController extends Controller
         return redirect('musica');
     }
 
+
     public function search(Request $request)
     {
         if (!empty($request->valor)) {
@@ -187,14 +226,15 @@ class MusicaController extends Controller
                 $request->tipo,
                 "like",
                 "%" . $request->valor . "%"
-            )->get();
+            )->paginate($this->pagination);
         } else {
-            $dados = Musica::all();
+            $dados = Musica::paginate($this->pagination);;
         }
         // dd($dados);
 
         return view("musica.list", ["dados" => $dados]);
     }
+
 
     public function chart(GraficoMusica $musicaChart)
     {
@@ -215,4 +255,6 @@ class MusicaController extends Controller
 
         return $pdf->download('relatorio_musica.pdf');
     }
+
+
 }

@@ -18,6 +18,7 @@ class Musica extends Model
         "ano",
         "link",
         "categoria_id",
+        "imagem",
 
     ];
 
